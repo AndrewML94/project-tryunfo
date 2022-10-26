@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class FirstCardAttribute extends Component {
   render() {
+    const { cardAttr1, onInputChange } = this.props;
     return (
       <form>
         <label htmlFor="firstAttribute">
@@ -10,11 +12,18 @@ class FirstCardAttribute extends Component {
             data-testid="attr1-input"
             type="number"
             id="firstAttribute"
+            value={ cardAttr1 }
+            onChange={ onInputChange }
           />
         </label>
       </form>
     );
   }
 }
+
+FirstCardAttribute.propTypes = {
+  cardAttr1: PropTypes.string.isRequired,
+  onInputChange: PropTypes.func.isRequired,
+};
 
 export default FirstCardAttribute;

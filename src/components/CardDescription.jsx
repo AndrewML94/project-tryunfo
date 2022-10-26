@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class CardDescription extends Component {
   render() {
+    const { cardDescription, onInputChange } = this.props;
     return (
       <form>
         <label htmlFor="description">
@@ -10,11 +12,18 @@ class CardDescription extends Component {
             data-testid="description-input"
             type="textarea"
             id="description"
+            value={ cardDescription }
+            onChange={ onInputChange }
           />
         </label>
       </form>
     );
   }
 }
+
+CardDescription.propTypes = {
+  cardDescription: PropTypes.string.isRequired,
+  onInputChange: PropTypes.func.isRequired,
+};
 
 export default CardDescription;
