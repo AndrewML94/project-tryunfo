@@ -9,7 +9,7 @@ class CardRarity extends Component {
         <label htmlFor="rarity">
           Raridade
           <select
-            name="select"
+            name="cardRare"
             id="rarity"
             data-testid="rare-input"
             value={ cardRare }

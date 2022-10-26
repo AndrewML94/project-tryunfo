@@ -12,6 +12,7 @@ class CardName extends Component {
             data-testid="name-input"
             type="text"
             id="name"
+            name="cardName"
             value={ cardName }
             onChange={ onInputChange }
           />

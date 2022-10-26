@@ -12,6 +12,7 @@ class CardDescription extends Component {
             data-testid="description-input"
             type="textarea"
             id="description"
+            name="cardDescription"
             value={ cardDescription }
             onChange={ onInputChange }
           />

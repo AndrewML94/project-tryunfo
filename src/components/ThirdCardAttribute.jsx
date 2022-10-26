@@ -12,6 +12,7 @@ class ThirdCardAttribute extends Component {
             data-testid="attr3-input"
             type="number"
             id="thirdAttribute"
+            name="cardAttr3"
             value={ cardAttr3 }
             onChange={ onInputChange }
           />

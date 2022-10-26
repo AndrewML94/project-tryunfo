@@ -11,6 +11,7 @@ class CardSuper extends Component {
             data-testid="trunfo-input"
             type="checkbox"
             id="super"
+            name="cardTrunfo"
             checked={ cardTrunfo }
             onChange={ onInputChange }
           />

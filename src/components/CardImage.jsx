@@ -12,6 +12,7 @@ class CardImage extends Component {
             data-testid="image-input"
             type="text"
             id="image"
+            name="cardImage"
             value={ cardImage }
             onChange={ onInputChange }
           />
