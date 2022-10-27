@@ -13,6 +13,7 @@ class App extends React.Component {
     cardRare: 'normal',
     cardTrunfo: false,
     hasTrunfo: false,
+    onSaveButtonClick: false,
   };
 
   inputValidation = () => {
@@ -40,8 +41,8 @@ class App extends React.Component {
     const validateTotalNumber = (Number(cardAttr1)
       + Number(cardAttr2) + Number(cardAttr3)) <= amount;
 
-    return validateText && validateTotalNumber && validateNumber1 && validateNumber2
-    && validateNumber3;
+    return !(validateText && validateTotalNumber && validateNumber1 && validateNumber2
+    && validateNumber3);
   };
 
   onInputChange = ({ target }) => {
@@ -61,6 +62,7 @@ class App extends React.Component {
       cardRare,
       cardTrunfo,
       hasTrunfo,
+      onSaveButtonClick,
     } = this.state;
     return (
       <div>
@@ -76,6 +78,7 @@ class App extends React.Component {
           cardTrunfo={ cardTrunfo }
           hasTrunfo={ hasTrunfo }
           isSaveButtonDisabled={ this.inputValidation() }
+          onSaveButtonClick={ onSaveButtonClick }
           onInputChange={ this.onInputChange }
         />
         <Card
