@@ -13,7 +13,7 @@ class App extends React.Component {
     cardRare: 'normal',
     cardTrunfo: false,
     hasTrunfo: false,
-    savedCard: [],
+    deck: [],
   };
 
   inputValidation = () => {
@@ -62,6 +62,7 @@ class App extends React.Component {
       cardAttr2,
       cardAttr3,
       cardRare,
+      cardTrunfo,
     } = this.state;
 
     const cardList = {
@@ -72,10 +73,11 @@ class App extends React.Component {
       cardAttr2,
       cardAttr3,
       cardRare,
+      cardTrunfo,
     };
 
     this.setState((prevState) => ({
-      savedCard: [...prevState.savedCard, cardList],
+      deck: [...prevState.deck, cardList],
       cardName: '',
       cardDescription: '',
       cardAttr1: '0',
@@ -83,6 +85,15 @@ class App extends React.Component {
       cardAttr3: '0',
       cardImage: '',
       cardRare: 'normal',
+      cardTrunfo: false,
+    }), (() => {
+      const { deck } = this.state;
+      const trunfo = deck.find((element) => element.cardTrunfo === true);
+      if (trunfo) {
+        this.setState({
+          hasTrunfo: true,
+        });
+      }
     }));
   };
 
@@ -98,6 +109,7 @@ class App extends React.Component {
       cardTrunfo,
       hasTrunfo,
     } = this.state;
+
     return (
       <div>
         <h1>Tryunfo</h1>
