@@ -11,14 +11,6 @@ import SubmitButton from './SubmitButton';
 import ThirdCardAttribute from './ThirdCardAttribute';
 
 class Form extends Component {
-  // onInputChange({ target }) {
-  //   const { name } = target;
-  //   const value = target.type === 'checkbox' ? target.checked : target.value;
-  //   this.setState({
-  //     [name]: value,
-  //   });
-  // }
-
   render() {
     const {
       cardName,
