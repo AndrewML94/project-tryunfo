@@ -6,17 +6,21 @@ class CardSuper extends Component {
     const { cardTrunfo, onInputChange } = this.props;
     return (
       <form>
-        <label htmlFor="super">
-          <input
-            data-testid="trunfo-input"
-            type="checkbox"
-            id="super"
-            name="cardTrunfo"
-            checked={ cardTrunfo }
-            onChange={ onInputChange }
-          />
-          Super Trybe Trunfo
-        </label>
+        { cardTrunfo
+          ? (
+            <p>Você já tem um Super Trunfo em seu baralho</p>
+          ) : (
+            <label htmlFor="super">
+              <input
+                data-testid="trunfo-input"
+                type="checkbox"
+                id="super"
+                name="cardTrunfo"
+                checked={ cardTrunfo }
+                onChange={ onInputChange }
+              />
+              Super Trybe Trunfo
+            </label>)}
       </form>
     );
   }

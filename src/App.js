@@ -67,20 +67,20 @@ class App extends React.Component {
     const cardList = {
       cardName,
       cardDescription,
+      cardImage,
       cardAttr1,
       cardAttr2,
       cardAttr3,
       cardRare,
-      cardImage,
     };
 
     this.setState((prevState) => ({
       savedCard: [...prevState.savedCard, cardList],
+      cardName: '',
+      cardDescription: '',
       cardAttr1: '0',
       cardAttr2: '0',
       cardAttr3: '0',
-      cardName: '',
-      cardDescription: '',
       cardImage: '',
       cardRare: 'normal',
     }));
