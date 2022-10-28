@@ -108,6 +108,7 @@ class App extends React.Component {
       cardRare,
       cardTrunfo,
       hasTrunfo,
+      deck,
     } = this.state;
 
     return (
@@ -137,6 +138,9 @@ class App extends React.Component {
           cardRare={ cardRare }
           cardTrunfo={ cardTrunfo }
         />
+        <ul>
+          { deck.map((card) => <li key={ Math.random() }>{ Object.values(card) }</li>) }
+        </ul>
       </div>
     );
   }
