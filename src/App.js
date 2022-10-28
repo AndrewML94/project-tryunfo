@@ -97,6 +97,15 @@ class App extends React.Component {
     }));
   };
 
+  deleteCard = ({ target }) => {
+    const { deck } = this.state;
+    const deletedCard = deck.filter((e) => e.cardName !== target.value);
+    this.setState({
+      hasTrunfo: false,
+      deck: deletedCard,
+    });
+  };
+
   render() {
     const {
       cardName,
@@ -128,6 +137,7 @@ class App extends React.Component {
           onSaveButtonClick={ this.onSaveButtonClick }
           onInputChange={ this.onInputChange }
         />
+        <h2>Pré visualização</h2>
         <Card
           cardName={ cardName }
           cardDescription={ cardDescription }
@@ -139,7 +149,27 @@ class App extends React.Component {
           cardTrunfo={ cardTrunfo }
         />
         <ul>
-          { deck.map((card) => <li key={ Math.random() }>{ Object.values(card) }</li>) }
+          { deck.map((card) => (
+            <li key={ Math.random() }>
+              <Card
+                cardName={ card.cardName }
+                cardDescription={ card.cardDescription }
+                cardAttr1={ card.cardAttr1 }
+                cardAttr2={ card.cardAttr2 }
+                cardAttr3={ card.cardAttr3 }
+                cardImage={ card.cardImage }
+                cardRare={ card.cardRare }
+                cardTrunfo={ card.cardTrunfo }
+              />
+              <button
+                type="button"
+                onClick={ this.deleteCard }
+                data-testid="delete-button"
+                value={ card.cardName }
+              >
+                Excluir
+              </button>
+            </li>))}
         </ul>
       </div>
     );
