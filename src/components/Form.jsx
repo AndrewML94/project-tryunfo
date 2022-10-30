@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import CardDescription from './CardDescription';
-import CardImage from './CardImage';
-import CardName from './CardName';
-import CardRarity from './CardRarity';
-import CardSuper from './CardSuper';
-import FirstCardAttribute from './FirstCardAttribute';
-import SecondCardAttribute from './SecondCardAttribute';
-import SubmitButton from './SubmitButton';
-import ThirdCardAttribute from './ThirdCardAttribute';
+import CardDescription from './inputs/CardDescription';
+import CardImage from './inputs/CardImage';
+import CardName from './inputs/CardName';
+import CardRarity from './inputs/CardRarity';
+import CardSuper from './inputs/CardSuper';
+import FirstCardAttribute from './inputs/FirstCardAttribute';
+import SecondCardAttribute from './inputs/SecondCardAttribute';
+import SubmitButton from './inputs/SubmitButton';
+import ThirdCardAttribute from './inputs/ThirdCardAttribute';
 
 class Form extends Component {
   render() {
