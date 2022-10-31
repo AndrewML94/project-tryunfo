@@ -3,6 +3,7 @@ import Card from './components/Card';
 import Form from './components/Form';
 import FilterName from './components/inputs/FilterName';
 import FilterRare from './components/inputs/FilterRare';
+import FilterTrunfo from './components/inputs/FilterSuper';
 
 class App extends React.Component {
   state = {
@@ -18,6 +19,7 @@ class App extends React.Component {
     deck: [],
     filterName: '',
     filterRare: 'todas',
+    filterTrunfo: false,
   };
 
   inputValidation = () => {
@@ -124,10 +126,13 @@ class App extends React.Component {
       deck,
       filterName,
       filterRare,
+      filterTrunfo,
     } = this.state;
     const filteredName = deck.filter((card) => card.cardName.includes(filterName));
     const filteredRare = filteredName.filter((card) => filterRare === 'todas'
       || card.cardRare === filterRare);
+    const filteredTrunfo = deck.filter((card) => card.cardTrunfo === true);
+    const result = filterTrunfo ? filteredTrunfo : filteredRare;
 
     return (
       <div>
@@ -162,14 +167,20 @@ class App extends React.Component {
           <FilterName
             filterName={ filterName }
             onInputChange={ this.onInputChange }
+            filterTrunfo={ filterTrunfo }
           />
           <FilterRare
             filterRare={ filterRare }
             onInputChange={ this.onInputChange }
+            filterTrunfo={ filterTrunfo }
+          />
+          <FilterTrunfo
+            filterTrunfo={ filterTrunfo }
+            onInputChange={ this.onInputChange }
           />
         </div>
         <ul>
-          { filteredRare.map((card) => (
+          { result.map((card) => (
             <li key={ Math.random() }>
               <Card
                 cardName={ card.cardName }
